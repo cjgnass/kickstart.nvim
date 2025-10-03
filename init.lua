@@ -773,6 +773,12 @@ require('lazy').setup({
         typescript = { 'prettierd', 'prettier' },
         typescriptreact = { 'prettierd', 'prettier' }, -- for .tsx
         javascriptreact = { 'prettierd', 'prettier' }, -- for .jsx
+        c = { 'clang_format' },
+        cpp = { 'clang_format' },
+        java = { 'clang_format' },
+        rust = { 'rustfmt' },
+        go = { 'goimports', 'gofmt' },
+        sql = { 'sqlfluff' },
       },
     },
   },
