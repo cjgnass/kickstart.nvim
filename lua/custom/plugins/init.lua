@@ -24,6 +24,28 @@ vim.keymap.set('n', '<leader>td', function()
     vim.diagnostic.disable()
   end
 end, { desc = 'Toggle diagnostics' })
+-- Toggle autocomplete
+vim.g.completion_enabled = true
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function(args)
+    vim.b[args.buf].completion = vim.g.completion_enabled
+  end,
+})
+
+vim.keymap.set('n', '<leader>ta', function()
+  vim.g.completion_enabled = not vim.g.completion_enabled
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) then
+      vim.b[buf].completion = vim.g.completion_enabled
+    end
+  end
+  if vim.g.completion_enabled then
+    print 'Autocomplete: ON'
+  else
+    print 'Autocomplete: OFF'
+  end
+end, { desc = 'Toggle autocomplete' })
 -- Toggle center cursor
 local centered = false
 local group_name = 'KeepCentered'
