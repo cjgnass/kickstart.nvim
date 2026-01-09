@@ -94,4 +94,7 @@ return {
       require('bufferline').setup {}
     end,
   },
+  {
+    'brianhuster/live-preview.nvim',
+  },
 }
