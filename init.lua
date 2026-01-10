@@ -889,53 +889,28 @@ require('lazy').setup({
   --   priority = 1000,
   --   opts = {},
   -- },
-
   {
-    'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
-        styles = {
-          comments = { italic = false }, -- Disable italics in comments
-        },
-      }
-      vim.opt.termguicolors = true
-      vim.cmd.colorscheme 'tokyonight-storm'
+    'tiagovla/tokyodark.nvim',
+    opts = {
+      -- custom options here
+    },
+    config = function(_, opts)
+      require('tokyodark').setup(opts) -- calling setup is optional
+      vim.cmd [[colorscheme tokyodark]]
     end,
   },
   -- {
-  --   'Kalidozza-theme/neovim',
+  --   'folke/tokyonight.nvim',
   --   priority = 1000, -- Make sure to load this before all the other start plugins.
   --   config = function()
-  --     vim.opt.termguicolors = true
-  --     vim.cmd.colorscheme 'kalidozza'
-  --   end,
-  -- },
-  -- {
-  --   'DonJulve/NeoCyberVim',
-  --   priority = 1000, -- Make sure to load this before all the other start plugins.
-  --   config = function()
-  --     require('NeoCyberVim').setup {
-  --       transparent = false, -- Boolean: Sets the background to transparent
-  --       italics = {
-  --         comments = true, -- Boolean: Italicizes comments
-  --         keywords = true, -- Boolean: Italicizes keywords
-  --         functions = true, -- Boolean: Italicizes functions
-  --         strings = true, -- Boolean: Italicizes strings
-  --         variables = true, -- Boolean: Italicizes variables
+  --     ---@diagnostic disable-next-line: missing-fields
+  --     require('tokyonight').setup {
+  --       styles = {
+  --         comments = { italic = false }, -- Disable italics in comments
   --       },
-  --       overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
   --     }
-  --     vim.cmd.colorscheme 'NeoCyberVim'
-  --   end,
-  -- },
-  -- {
-  --   'chaserensberger/christmas.nvim',
-  --   priority = 1000, -- Make sure to load this before all the other start plugins.
-  --   config = function()
   --     vim.opt.termguicolors = true
-  --     vim.cmd.colorscheme 'christmas'
+  --     vim.cmd.colorscheme 'tokyonight-storm'
   --   end,
   -- },
   -- Highlight todo, notes, etc in comments
